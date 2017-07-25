@@ -1,14 +1,23 @@
 import React, {Component} from 'react'
 import {render} from 'react-dom'
 
-import Example from '../../src'
+import { TimeAgo } from '../../src'
 
 class Demo extends Component {
   render() {
-    return <div>
-      <h1>react-native-timeago Demo</h1>
-      <Example/>
-    </div>
+    return (
+      <div>
+        <TimeAgo time={Date.now()} />
+        <TimeAgo time={Date.now() - 1000000} />
+        <TimeAgo time={Date.now() - 10000000} suffix={false} />
+        <TimeAgo time={Date.now() - 100000000} style={{ color: 'red' }} />
+        <TimeAgo prefix="as of" time={Date.now() - 1000000000} containerStyle={{
+          paddingTop: 14,
+          paddingBottom: 14,
+          backgroundColor: 'yellow'
+        }} style={{ textAlign: 'center' }} />
+      </div>
+    );
   }
 }
 
